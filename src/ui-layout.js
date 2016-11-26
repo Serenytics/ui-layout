@@ -172,6 +172,9 @@ angular.module('ui.layout', [])
     };
 
     ctrl.mouseMoveHandler = function(mouseEvent) {
+      if (opts.disableResize) {
+        return;
+      }
       var mousePos = mouseEvent[ctrl.sizeProperties.mouseProperty] ||
         (mouseEvent.originalEvent && mouseEvent.originalEvent[ctrl.sizeProperties.mouseProperty]) ||
         // jQuery does touches weird, see #82
